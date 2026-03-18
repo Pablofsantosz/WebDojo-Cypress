@@ -36,3 +36,13 @@ Cypress.Commands.add('SubmitLoginForm',(email,senha) => {
 
     cy.contains('button', 'Entrar').click()
 })
+
+Cypress.Commands.add('goTo',(ButtonName,pageTitle) =>{
+    cy.contains('button', ButtonName)
+        .should('be.visible')
+        .click()
+    //OU cy.contains('Formulários').click()
+     cy.contains('h1', pageTitle).should('be.visible')
+
+
+})
