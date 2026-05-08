@@ -11,7 +11,7 @@ describe('Login', () => {
     cy.get('[data-cy=welcome-message]')
       .should('be.visible')
       .and('have.text', 'Olá QA, esse é o seu Dojo para aprender Automação de Testes.')
-    cy.wait(5000)
+    cy.wait(3000)
     
   })
 

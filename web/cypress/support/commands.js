@@ -24,11 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+
+// Comando para iniciar o teste, definindo a resolução e visitando a página inicial do aplicativo
 Cypress.Commands.add('Start',() =>{
     cy.viewport(1440, 900)
     cy.visit('http://localhost:3000/')
 })
-
+// Comando para preencher o formulário de login
 Cypress.Commands.add('SubmitLoginForm',(email,senha) => {
     
     cy.get('#email').type(email)
@@ -36,13 +38,16 @@ Cypress.Commands.add('SubmitLoginForm',(email,senha) => {
 
     cy.contains('button', 'Entrar').click()
 })
-
+// Comando para navegar para uma página específica através de um botão e verificar o título da página
 Cypress.Commands.add('goTo',(ButtonName,pageTitle) =>{
     cy.contains('button', ButtonName)
         .should('be.visible')
         .click()
-    //OU cy.contains('Formulários').click()
-     cy.contains('h1', pageTitle).should('be.visible')
+    //Ou cy.contains('Formulários').click()
 
+
+    cy.contains('h1', pageTitle).should('be.visible')
+    //Ou cy.contains( pageTitle).should('be.visible')
+    //Ou cy.get('h1').should('have.text', pageTitle)
 
 })
